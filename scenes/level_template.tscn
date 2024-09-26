@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://y50ln4jgvybc"]
+
+[ext_resource type="PackedScene" uid="uid://cf4wmr6nap4ec" path="res://scenes/objects/paddle.tscn" id="1_p8vk8"]
+[ext_resource type="Script" path="res://scenes/objects/scripts/paddle.gd" id="2_gkl6j"]
+[ext_resource type="PackedScene" uid="uid://ddwkjghc61bh5" path="res://scenes/objects/wall.tscn" id="3_upyed"]
+
+[node name="LevelTemplate" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_p8vk8")]
+position = Vector2(1012, 991)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("2_gkl6j")
+
+[node name="WallLeft" parent="." instance=ExtResource("3_upyed")]
+position = Vector2(32, 607)
+scale = Vector2(1, 17)
+
+[node name="WallRight" parent="." instance=ExtResource("3_upyed")]
+position = Vector2(1888, 608)
+scale = Vector2(1, 17)
+
+[node name="WallTop" parent="." instance=ExtResource("3_upyed")]
+position = Vector2(960, 32)
+scale = Vector2(30, 1)

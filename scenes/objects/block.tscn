@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://p4cggkr6egeb"]
+
+[ext_resource type="Texture2D" uid="uid://b5phspvcburng" path="res://assets/Tiles green/tileGreen_02.png" id="1_4ohi2"]
+[ext_resource type="Script" path="res://scenes/objects/scripts/block.gd" id="1_t5lhp"]
+[ext_resource type="Texture2D" uid="uid://5stx3ua8h3w4" path="res://assets/Tiles blue/tileBlue_02.png" id="2_rqsph"]
+[ext_resource type="Texture2D" uid="uid://n62jv8iocq2h" path="res://assets/Tiles orange/tileOrange_01.png" id="3_b2qio"]
+[ext_resource type="Texture2D" uid="uid://c870mcwa8mvha" path="res://assets/Tiles red/tileRed_02.png" id="4_kch7q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26qjx"]
+size = Vector2(188, 88)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_t5lhp")
+
+[node name="Sprite_Green" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4ohi2")
+
+[node name="Sprite_Blue" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_rqsph")
+
+[node name="Sprite_Orange" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_b2qio")
+
+[node name="Sprite_Red" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_kch7q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_26qjx")
