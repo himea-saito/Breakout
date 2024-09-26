@@ -12,6 +12,7 @@ func _ready():
 	for block in blocks_container.get_children():
 		block.connect("block_destroyed", Callable(self, "_on_block_destroyed"))
 	reset_game()
+	$Background.play()
 
 func _process(_delta):
 	if game_over and Input.is_action_just_pressed("ui_accept"):

@@ -1,7 +1,7 @@
 @tool
 extends StaticBody2D
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: Sprite2D = $WallTexture
 
 
 func _ready() -> void:

@@ -12,6 +12,10 @@ const PADDLE_INFLUENCE: float = 0.05        #Reduced to a much smaller value
 const MAX_PADDLE_EFFECT: float = 0.3       	#Maximum effect the paddle can have on direction
 const MAX_LAUNCH_ANGLE: float = PI / 4      #Maximum launch angle (45 degrees)
 const LAUNCH_ANGLE_SPEED: float = 2.0       #Speed of angle change
+const WALL_SOUND_THRESHOLD: int = 2         #Number of walls to hit before playing sound
+
+var consecutive_wall_hits: int = 0
+
 
 @onready var arrow = $ArrowShape
 signal ball_out_of_bounds
@@ -41,11 +45,29 @@ func _physics_process(delta):
 			var collider = collision.get_collider()
 			if collider == paddle:
 				bounce_off_paddle(collision)
+				consecutive_wall_hits = 0
 			else:
 				direction = direction.bounce(collision.get_normal())
 				if collider.has_method("hit"):
 					collider.hit()
+					consecutive_wall_hits = 0
+				elif "Wall" in collider.name:
+					consecutive_wall_hits += 1
+					if consecutive_wall_hits >= WALL_SOUND_THRESHOLD:
+						$SFX/WallCollision.play()
+				else:
+					consecutive_wall_hits = 0
+
 			velocity = direction * speed
+
+			var pitch = randf_range(0.9, 1.1)
+			# TODO: Find a different sound, this one is annoying
+			# if "Paddle" in collider.name:
+			# 	$SFX/PaddleCollision.pitch_scale = pitch
+			# 	$SFX/PaddleCollision.play()
+			if "Block" in collider.name:
+				$SFX/BlockCollision.pitch_scale = pitch
+				$SFX/BlockCollision.play()
 
 func _process(_delta):
 	if not is_launched and Input.is_action_just_pressed("ui-start"):
@@ -66,8 +88,6 @@ func launch_ball():
 	velocity = direction * speed
 	arrow.visible = false
 	ball_launched.emit()
-	print(direction)
-	print(launch_angle)
 
 func _on_VisibilityNotifier2D_screen_exited():
 	ball_out_of_bounds.emit()

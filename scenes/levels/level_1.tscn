@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bojho35of7eu8"]
+[gd_scene load_steps=8 format=3 uid="uid://bojho35of7eu8"]
 
 [ext_resource type="PackedScene" uid="uid://cf4wmr6nap4ec" path="res://scenes/objects/paddle.tscn" id="1_61qn4"]
 [ext_resource type="Script" path="res://scenes/objects/scripts/game_manager.gd" id="1_esfoa"]
@@ -6,139 +6,142 @@
 [ext_resource type="PackedScene" uid="uid://bcou7m4bnhllw" path="res://scenes/objects/ball.tscn" id="3_f4i2x"]
 [ext_resource type="PackedScene" uid="uid://ddwkjghc61bh5" path="res://scenes/objects/wall.tscn" id="3_i720f"]
 [ext_resource type="PackedScene" uid="uid://p4cggkr6egeb" path="res://scenes/objects/block.tscn" id="4_7lonn"]
+[ext_resource type="AudioStream" uid="uid://b038ydvjgq5ij" path="res://audio/BGM/bit-shift-kevin-macleod-main-version-24901-03-12.mp3" id="7_eo3vx"]
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource("1_esfoa")
 
 [node name="Paddle" parent="." instance=ExtResource("1_61qn4")]
-position = Vector2(960, 1000)
+position = Vector2(720, 1000)
 scale = Vector2(0.3, 0.3)
 script = ExtResource("2_ea58j")
 
 [node name="Ball" parent="." instance=ExtResource("3_f4i2x")]
-position = Vector2(960, 950)
+position = Vector2(720, 950)
 
 [node name="Walls" type="Node2D" parent="."]
 
 [node name="WallLeft" parent="Walls" instance=ExtResource("3_i720f")]
-position = Vector2(32, 607)
-scale = Vector2(1, 17)
+position = Vector2(28, 646)
+scale = Vector2(1, 20.48)
 
 [node name="WallRight" parent="Walls" instance=ExtResource("3_i720f")]
-position = Vector2(1888, 608)
-scale = Vector2(1, 17)
+position = Vector2(1411, 646)
+scale = Vector2(1, 20.48)
 
 [node name="WallTop" parent="Walls" instance=ExtResource("3_i720f")]
-position = Vector2(960, 32)
+position = Vector2(863, 28)
 scale = Vector2(30, 1)
 
 [node name="Blocks" type="Node2D" parent="."]
+position = Vector2(720, 500)
 
 [node name="BlocksRow1" type="Node2D" parent="Blocks"]
 
 [node name="Block" parent="Blocks/BlocksRow1" instance=ExtResource("4_7lonn")]
-position = Vector2(960, 589)
 initial_health = 1
 
 [node name="Block2" parent="Blocks/BlocksRow1" instance=ExtResource("4_7lonn")]
-position = Vector2(866, 589)
+position = Vector2(-94, 0)
 initial_health = 1
 
 [node name="Block3" parent="Blocks/BlocksRow1" instance=ExtResource("4_7lonn")]
-position = Vector2(772, 589)
+position = Vector2(-188, 0)
 initial_health = 1
 
 [node name="Block4" parent="Blocks/BlocksRow1" instance=ExtResource("4_7lonn")]
-position = Vector2(678, 589)
+position = Vector2(-282, 0)
 initial_health = 1
 
 [node name="Block5" parent="Blocks/BlocksRow1" instance=ExtResource("4_7lonn")]
-position = Vector2(584, 589)
+position = Vector2(-376, 0)
 initial_health = 1
 
 [node name="Block6" parent="Blocks/BlocksRow1" instance=ExtResource("4_7lonn")]
-position = Vector2(490, 589)
+position = Vector2(-470, 0)
 initial_health = 1
 
 [node name="Block7" parent="Blocks/BlocksRow1" instance=ExtResource("4_7lonn")]
-position = Vector2(396, 589)
+position = Vector2(-564, 0)
 initial_health = 1
 
 [node name="Block8" parent="Blocks/BlocksRow1" instance=ExtResource("4_7lonn")]
-position = Vector2(1524, 589)
+position = Vector2(94, 0)
 initial_health = 1
 
 [node name="Block9" parent="Blocks/BlocksRow1" instance=ExtResource("4_7lonn")]
-position = Vector2(1430, 589)
+position = Vector2(188, 0)
 initial_health = 1
 
 [node name="Block10" parent="Blocks/BlocksRow1" instance=ExtResource("4_7lonn")]
-position = Vector2(1336, 589)
+position = Vector2(282, 0)
 initial_health = 1
 
 [node name="Block11" parent="Blocks/BlocksRow1" instance=ExtResource("4_7lonn")]
-position = Vector2(1242, 589)
+position = Vector2(376, 0)
 initial_health = 1
 
 [node name="Block12" parent="Blocks/BlocksRow1" instance=ExtResource("4_7lonn")]
-position = Vector2(1148, 589)
+position = Vector2(470, 0)
 initial_health = 1
 
 [node name="Block13" parent="Blocks/BlocksRow1" instance=ExtResource("4_7lonn")]
-position = Vector2(1054, 589)
+position = Vector2(564, 0)
 initial_health = 1
 
 [node name="BlocksRow2" type="Node2D" parent="Blocks"]
 position = Vector2(0, -44)
 
 [node name="Block" parent="Blocks/BlocksRow2" instance=ExtResource("4_7lonn")]
-position = Vector2(960, 589)
 initial_health = 2
 
 [node name="Block2" parent="Blocks/BlocksRow2" instance=ExtResource("4_7lonn")]
-position = Vector2(866, 589)
+position = Vector2(-94, 0)
 initial_health = 2
 
 [node name="Block3" parent="Blocks/BlocksRow2" instance=ExtResource("4_7lonn")]
-position = Vector2(772, 589)
+position = Vector2(-188, 0)
 initial_health = 2
 
 [node name="Block4" parent="Blocks/BlocksRow2" instance=ExtResource("4_7lonn")]
-position = Vector2(678, 589)
+position = Vector2(-282, 0)
 initial_health = 2
 
 [node name="Block5" parent="Blocks/BlocksRow2" instance=ExtResource("4_7lonn")]
-position = Vector2(584, 589)
+position = Vector2(-376, 0)
 initial_health = 2
 
 [node name="Block6" parent="Blocks/BlocksRow2" instance=ExtResource("4_7lonn")]
-position = Vector2(490, 589)
+position = Vector2(-470, 0)
 initial_health = 2
 
 [node name="Block7" parent="Blocks/BlocksRow2" instance=ExtResource("4_7lonn")]
-position = Vector2(396, 589)
+position = Vector2(-564, 0)
 initial_health = 2
 
 [node name="Block8" parent="Blocks/BlocksRow2" instance=ExtResource("4_7lonn")]
-position = Vector2(1524, 589)
+position = Vector2(94, 0)
 initial_health = 2
 
 [node name="Block9" parent="Blocks/BlocksRow2" instance=ExtResource("4_7lonn")]
-position = Vector2(1430, 589)
+position = Vector2(188, 0)
 initial_health = 2
 
 [node name="Block10" parent="Blocks/BlocksRow2" instance=ExtResource("4_7lonn")]
-position = Vector2(1336, 589)
+position = Vector2(282, 0)
 initial_health = 2
 
 [node name="Block11" parent="Blocks/BlocksRow2" instance=ExtResource("4_7lonn")]
-position = Vector2(1242, 589)
+position = Vector2(376, 0)
 initial_health = 2
 
 [node name="Block12" parent="Blocks/BlocksRow2" instance=ExtResource("4_7lonn")]
-position = Vector2(1148, 589)
+position = Vector2(470, 0)
 initial_health = 2
 
 [node name="Block13" parent="Blocks/BlocksRow2" instance=ExtResource("4_7lonn")]
-position = Vector2(1054, 589)
+position = Vector2(564, 0)
 initial_health = 2
+
+[node name="Background" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_eo3vx")

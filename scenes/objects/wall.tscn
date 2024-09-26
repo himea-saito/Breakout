@@ -4,14 +4,14 @@
 [ext_resource type="Script" path="res://scenes/objects/scripts/wall.gd" id="1_n2xuk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tip3h"]
-size = Vector2(64, 64)
+size = Vector2(58, 58)
 
 [node name="Wall" type="StaticBody2D"]
 script = ExtResource("1_n2xuk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="WallTexture" type="Sprite2D" parent="."]
 texture_repeat = 2
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_boknv")
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 128)
