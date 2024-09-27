@@ -69,6 +69,11 @@ func _physics_process(delta):
 				$SFX/BlockCollision.pitch_scale = pitch
 				$SFX/BlockCollision.play()
 
+		var viewport = get_viewport_rect()
+		if not viewport.has_point(global_position):
+			ball_out_of_bounds.emit()
+			print("Ball out of bounds")
+
 func _process(_delta):
 	if not is_launched and Input.is_action_just_pressed("ui-start"):
 		launch_ball()
@@ -88,9 +93,6 @@ func launch_ball():
 	velocity = direction * speed
 	arrow.visible = false
 	ball_launched.emit()
-
-func _on_VisibilityNotifier2D_screen_exited():
-	ball_out_of_bounds.emit()
 
 func _on_all_blocks_destroyed():
 	get_tree().call_group("game", "game_won")

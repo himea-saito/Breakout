@@ -19,12 +19,12 @@ func hit():
 	set_health_and_color(health - 1)
 	if health <= 0:
 		block_destroyed.emit()
-		queue_free()  # This will remove the block from the scene
+		queue_free()
 
 func set_health_and_color(new_health: int):
 	health = clamp(new_health, 0, 4)
 	if health > 0:
-		current_color = BlockColor.values()[health - 1]  # This line is changed
+		current_color = BlockColor.values()[health - 1]
 		update_sprite()
 	else:
 		hide()

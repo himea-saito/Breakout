@@ -23,9 +23,13 @@ func _physics_process(delta: float) -> void:
 		velocity = input_vector * speed
 		move_and_slide()
 
-		# Calculate the current velocity for the ball to bounce off
+		#Calculate the current velocity for the ball to bounce off
 		current_velocity = (position - last_position) / delta
 		last_position = position
+
+		#If paddle has moved Y position, reset it to the original position
+		if position.y != 1000:
+			position.y = 1000
 	else:
 		# Lock paddle in place until ball is launched
 		velocity = Vector2.ZERO
